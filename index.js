@@ -15,7 +15,7 @@ const USER = {
 
 // Login route
 app.post("/Login", (req, res) => {
-    res.send("Backend is running ✅");
+   
 
   const { email, password } = req.body;
 
