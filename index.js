@@ -3,10 +3,7 @@ const cors = require("cors");
 const app = express();
 
 // ✅ CORS for Vercel frontend
-app.use(cors({
-  origin: "https://your-frontend.vercel.app", // change this
-  methods: ["GET", "POST"],
-}));
+app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 
@@ -18,10 +15,13 @@ const USER = {
 
 // Login route
 app.post("/Login", (req, res) => {
+    res.send("Backend is running ✅");
+
   const { email, password } = req.body;
 
   if (email === USER.email && password === USER.password) {
     return res.json({ success: true });
+    
   }
 
   res.status(401).json({ success: false });
